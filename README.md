@@ -6,5 +6,5 @@ Building a single larger application to locate hangout spots along a particular 
 1. Made use of passport authentication middleware for Node.js to implement authentication for login and register pages.
 2. Created a user Model, Register and Login forms and routes, Logout route e.t.c
 
-##Basic Authorization
+## Basic Authorization
 Added and author to each hangouts , authorization middlewares, hangout permissions and review permissions
