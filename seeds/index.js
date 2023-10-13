@@ -22,6 +22,7 @@ const seedDB = async () => {
     for (let i = 0; i < 50; i++) {
         const random1000 = Math.floor(Math.random() * 1000)
         const hang = new Hangout({
+            author: "651ede5f4082921198a00cff",
             location: `${cities[random1000].city}, ${cities[random1000].state}`,
             name: `${rand(descriptors)} ${rand(places)}`,
             image: 'https://source.unsplash.com/collection/483251',
