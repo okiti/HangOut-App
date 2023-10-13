@@ -1,0 +1,61 @@
+<% layout('layouts/boilerplate') %>
+
+    <div class="row">
+        <h2 class="text-center">New Hangout</h2>
+        <div class="col-6 offset-3">
+            <form action="/hangouts/" method="post" novalidate class="validated-form">
+
+                <div class="mb-3">
+                    <label class="label-form" for="name"> Name</label>
+                    <input class="form-control" type="text" id="name" name="hangout[name]" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="label-form" for="location"> Location</label>
+                    <input class="form-control" type="text" id="location" name="hangout[location]"
+                        placeholder="Ikeja, Lagos" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="label-form" for="image"> Image Url</label>
+                    <input class="form-control" type="text" id="image" name="hangout[image]" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="label-form" for="daysOpen"> Days/Time Open</label>
+                    <input class="form-control" name="hangout[daysOpen]" id="daysOpen"
+                        placeholder="e.g. Monday - Saturday, 9:00am - 10:00pm" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="label-form" for="description"> Description</label>
+                    <textarea class="form-control" name="hangout[description]" id="description" cols="30" rows="5"
+                        required></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <button class="btn btn-success">Add Hangout</button>
+                </div>
+
+
+            </form>
+            <br>
+            <a href="/hangouts">All Hangouts</a>
+
+        </div>
+    </div>

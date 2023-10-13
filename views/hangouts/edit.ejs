@@ -1,0 +1,62 @@
+<% layout('layouts/boilerplate') %>
+
+    <div class="row">
+        <h2 class="text-center">Edit Hangout</h2>
+        <div class="col-6 offset-3">
+            <form action="/hangouts/<%=hangout._id%>?_method=PUT" method="post" novalidate class="validated-form">
+
+                <div class="mb-3">
+                    <label class="label-form" for="name"> Name</label>
+                    <input class="form-control" type="text" id="name" name="hangout[name]" value="<%=hangout.name %>"
+                        required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="label-form" for="name"> Location</label>
+                    <input class="form-control" type="text" id="location" name="hangout[location]"
+                        value="<%=hangout.location%>" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="label-form" for="image"> Image Url</label>
+                    <input class="form-control" type="text" id="image" name="hangout[image]" value="<%=hangout.image%>"
+                        required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="label-form" for="daysOpen"> Days/Time Open</label>
+                    <input class="form-control" name="hangout[daysOpen]" id="daysOpen" value="<%=hangout.daysOpen%>"
+                        required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="label-form" for="description"> Description</label>
+                    <textarea class="form-control" name="hangout[description]" id="description" cols="30" rows="5"
+                        required><%=hangout.description%></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <button class="btn btn-success">Add Hangout</button>
+                </div>
+
+            </form>
+            <br>
+            <a href="/hangouts/<%=hangout._id %>">Back</a>
+
+        </div>
+    </div>

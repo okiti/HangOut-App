@@ -1,0 +1,35 @@
+<% layout('layouts/boilerplate') %>
+
+    <h1>All Hangouts</h1>
+
+    <div>
+        <a href="/hangouts/new">Add Hangout</a>
+    </div>
+
+
+    <% for(let hangout of hangouts){ %>
+        <div class="card mb-3">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="<%=hangout.image %>" alt="" class="img-fluid">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%=hangout.name %>
+                        </h5>
+                        <p class="card-text">
+                            <%=hangout.description%>
+                        </p>
+                        <p class="card-text">
+                            <small class="text-muted">
+                                <%=hangout.location%>
+                            </small>
+                        </p>
+                        <a href="/hangouts/<%=hangout._id%>" class="btn btn-primary">View <%=hangout.name%></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <% }%>
