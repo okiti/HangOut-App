@@ -1,3 +1,8 @@
+const Hangout = require('./models/hangout')
+const Review = require('./models/review')
+
+const ExpressError = require('./utils/ExpressError')   //handles the error//
+const { hangoutSchema, reviewSchema } = require('./schemas')
 
 const Hangout = require('./models/hangout')
 const Review = require('./models/review')
@@ -55,4 +60,3 @@ module.exports.isReviewAuthor = async (req, res, next) => {
     }
     next();
 }
-
