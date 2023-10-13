@@ -7,4 +7,4 @@ Building a single larger application to locate hangout spots along a particular 
 2. Created a user Model, Register and Login forms and routes, Logout route e.t.c
 
 ## Basic Authorization
-Added and author to each hangouts , authorization middlewares, hangout permissions and review permissions
+Added hangout authors , authorization middlewares, hangout permissions and review permissions
