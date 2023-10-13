@@ -4,6 +4,12 @@ const Review = require('./models/review')
 const ExpressError = require('./utils/ExpressError')   //handles the error//
 const { hangoutSchema, reviewSchema } = require('./schemas')
 
+const Hangout = require('./models/hangout')
+const Review = require('./models/review')
+
+const ExpressError = require('./utils/ExpressError')   //handles the error//
+const { hangoutSchema, reviewSchema } = require('./schemas')
+
 module.exports.isLoggedIn = (req, res, next) => {
     if (!req.isAuthenticated()) {
         req.session.returnTo = req.originalUrl;
