@@ -1,4 +1,5 @@
 const Hangout = require('../models/hangout')
+const { cloudinary } = require('../cloudinary/index')
 
 
 module.exports.index = async (req, res) => {
@@ -11,11 +12,11 @@ module.exports.renderNewForm = (req, res) => {
 }
 
 module.exports.createHangout = async (req, res) => {
-
     const hangout = new Hangout(req.body.hangout)
-    console.log(hangout)
+    hangout.images = req.files.map(f => ({ url: f.path, filename: f.filename }))
     hangout.author = req.user._id;
     await hangout.save()
+    console.log(hangout)
     req.flash('success', 'Sucessfully created a new hangout!')
     res.redirect(`/hangouts/${hangout._id}`)
 
@@ -50,6 +51,16 @@ module.exports.renderEditForm = async (req, res) => {
 module.exports.updateHangout = async (req, res) => {
     const { id } = req.params;
     const hangout = await Hangout.findByIdAndUpdate(id, { ...req.body.hangout })
+    const imgs = (req.files.map(f => ({ url: f.path, filename: f.filename })))
+    hangout.images.push(...imgs)
+    if (req.body.deleteImages) {
+        for (let filename of req.body.deleteImages) {
+            await cloudinary.uploader.destroy(filename)
+        }
+        await hangout.updateOne({ $pull: { images: { filename: { $in: req.body.deleteImages } } } })
+        console.log(hangout)
+    }
+    await hangout.save()
     req.flash('success', 'Sucessfully updated hangout!')
     res.redirect(`/hangouts/${hangout._id}`)
 }
