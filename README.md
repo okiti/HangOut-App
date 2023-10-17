@@ -17,3 +17,6 @@ Added hangout authors , authorization middlewares, hangout permissions and revie
 4. used carousel (bootstrap) to scroll through multiple images in the show page.
 5. multer-storage-cloudinary - to upload files that multer is parsing to cloudinary.
 
+## Adding Maps
+added map using mapbox (@mapbox/mapbox-sdk) express package and made use of mapbox gl-Js tool to render interative maps.
+
