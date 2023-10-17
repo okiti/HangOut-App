@@ -3,7 +3,8 @@
     <div class="row">
         <h2 class="text-center">Edit Hangout</h2>
         <div class="col-6 offset-3">
-            <form action="/hangouts/<%=hangout._id%>?_method=PUT" method="post" novalidate class="validated-form">
+            <form action="/hangouts/<%=hangout._id%>?_method=PUT" method="post" novalidate class="validated-form"
+                enctype="multipart/form-data">
 
                 <div class="mb-3">
                     <label class="label-form" for="name"> Name</label>
@@ -18,15 +19,6 @@
                     <label class="label-form" for="name"> Location</label>
                     <input class="form-control" type="text" id="location" name="hangout[location]"
                         value="<%=hangout.location%>" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <label class="label-form" for="image"> Image Url</label>
-                    <input class="form-control" type="text" id="image" name="hangout[image]" value="<%=hangout.image%>"
-                        required>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
@@ -51,7 +43,28 @@
                 </div>
 
                 <div class="mb-3">
-                    <button class="btn btn-success">Add Hangout</button>
+                    <div class="form-file custom-file">
+                        <input type="file" name="image" id="image" class="form-file-input" multiple>
+                        <label class="form-file-label" for="image">
+                            <span class="form-file-text custom-file-label">Add more image(s)...</span>
+                            <span class="form-file-button">Browse</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <%hangout.images.forEach((img, i)=> {%>
+                        <img src="<%=img.thumbnail %>" class="img-thumbnail" alt="">
+                        <div class="form-check-inline">
+                            <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%=img.filename %>">
+                            <label for="image-<%=i%>">delete?</label>
+                        </div>
+                        <% }); %>
+                </div>
+
+
+                <div class="mb-3">
+                    <button class="btn btn-success">Update Hangout</button>
                 </div>
 
             </form>

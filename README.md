@@ -8,3 +8,12 @@ Building a single larger application to locate hangout spots along a particular 
 
 ## Basic Authorization
 Added hangout authors , authorization middlewares, hangout permissions and review permissions
+
+
+## Image Upload
+1. Used Cloudinary to store images adn further store their urls in the database.
+2. Used express middleware (multer) to parse/handle multipart/form-ata for uploading files.
+3. dotenv to store codes, API credentials/secret key
+4. used carousel (bootstrap) to scroll through multiple images in the show page.
+5. multer-storage-cloudinary - to upload files that multer is parsing to cloudinary.
+

@@ -3,7 +3,7 @@
     <div class="row">
         <h2 class="text-center">New Hangout</h2>
         <div class="col-6 offset-3">
-            <form action="/hangouts/" method="post" novalidate class="validated-form">
+            <form action="/hangouts/" method="post" novalidate class="validated-form" enctype="multipart/form-data">
 
                 <div class="mb-3">
                     <label class="label-form" for="name"> Name</label>
@@ -22,13 +22,6 @@
                     </div>
                 </div>
 
-                <div class="mb-3">
-                    <label class="label-form" for="image"> Image Url</label>
-                    <input class="form-control" type="text" id="image" name="hangout[image]" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                </div>
 
                 <div class="mb-3">
                     <label class="label-form" for="daysOpen"> Days/Time Open</label>
@@ -45,6 +38,16 @@
                         required></textarea>
                     <div class="valid-feedback">
                         Looks good!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="form-file custom-file">
+                        <input type="file" name="image" id="image" class="form-file-input" multiple>
+                        <label class="form-file-label" for="image">
+                            <span class="form-file-text custom-file-label">Choose image(s)...</span>
+                            <span class="form-file-button">Browse</span>
+                        </label>
                     </div>
                 </div>
 
