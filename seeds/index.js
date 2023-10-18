@@ -19,7 +19,7 @@ const rand = (array) => array[Math.floor(Math.random() * array.length)]
 
 const seedDB = async () => {
     await Hangout.deleteMany({})
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 300; i++) {
         const random1000 = Math.floor(Math.random() * 1000)
         const hang = new Hangout({
             author: "651ede5f4082921198a00cff",
@@ -27,7 +27,10 @@ const seedDB = async () => {
             name: `${rand(descriptors)} ${rand(places)}`,
             geometry: {
                 type: "Point",
-                coordinates: [-113.1331, 47.0202]
+                coordinates: [
+                    cities[random1000].longitude,
+                    cities[random1000].latitude 
+                ]
             },
             images: [
                 {

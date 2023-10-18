@@ -1,5 +1,7 @@
 <% layout('layouts/boilerplate') %>
 
+<div id="map" style="width:100% ; height: 500px;"></div>
+
     <h1>All Hangouts</h1>
 
     <div>
@@ -40,3 +42,10 @@
         </div>
 
         <% }%>
+
+        <script>
+            const mapBoxToken = "<%=process.env.MAPBOX_TOKEN%>"
+            const hangouts = {features: <%-JSON.stringify(hangouts)%>}
+        </script>
+
+        <script src="/javascripts/clusterMap.js"></script>
