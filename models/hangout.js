@@ -11,6 +11,8 @@ ImageSchema.virtual('thumbnail').get(function () {
     return this.url.replace('/upload', '/upload/w_200')
 })
 
+const opts = { toJSON: { virtuals: true } };
+
 const hangoutSchema = new Schema({
     name: String,
     location: String,
@@ -38,6 +40,11 @@ const hangoutSchema = new Schema({
             ref: 'Review'
         }
     ]
+}, opts)
+
+hangoutSchema.virtual('properties.popUpMarkup').get(function () {
+    return `<strong><a href="/hangouts/${this._id}">${this.name}</a><strong>
+    <p>${this.description.substring(0, 25)}...</p>`
 })
 
 
