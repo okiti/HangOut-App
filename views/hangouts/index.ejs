@@ -1,12 +1,8 @@
 <% layout('layouts/boilerplate') %>
 
-<div id="map" style="width:100% ; height: 500px;"></div>
+    <div id="cluster-map"></div>
 
-    <h1>All Hangouts</h1>
-
-    <div>
-        <a href="/hangouts/new">Add Hangout</a>
-    </div>
+    <h1 id="heading">All HangOuts</h1>
 
 
     <% for(let hangout of hangouts){ %>
@@ -15,13 +11,14 @@
                 <div class="col-md-4">
 
                     <%if(hangout.images.length){ %>
-                      <img src="<%=hangout.images[0].url %>" alt="" class="img-fluid">
-                   <% } else{ %>
-                    <img src="https://res.cloudinary.com/dxyu04ati/image/upload/v1697563804/HangOut/nvqdrzomiruge7bfgnlb.png" alt="" class="img-fluid">
-                    <% } %>
+                        <img src="<%=hangout.images[0].url %>" alt="" class="img-fluid">
+                        <% } else{ %>
+                            <img src="https://res.cloudinary.com/dxyu04ati/image/upload/v1697563804/HangOut/nvqdrzomiruge7bfgnlb.png"
+                                alt="" class="img-fluid">
+                            <% } %>
 
                 </div>
-                
+
                 <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title">
@@ -43,9 +40,9 @@
 
         <% }%>
 
-        <script>
-            const mapBoxToken = "<%=process.env.MAPBOX_TOKEN%>"
-            const hangouts = {features: <%-JSON.stringify(hangouts)%>}
-        </script>
+            <script>
+                const mapBoxToken = "<%=process.env.MAPBOX_TOKEN%>"
+                const hangouts = { features: <%-JSON.stringify(hangouts) %>}
+            </script>
 
-        <script src="/javascripts/clusterMap.js"></script>
+            <script src="/javascripts/clusterMap.js"></script>

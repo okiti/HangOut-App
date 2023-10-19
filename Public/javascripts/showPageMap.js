@@ -1,4 +1,4 @@
-
+ 
 mapboxgl.accessToken = mapBoxToken;
 const map = new mapboxgl.Map({
     container: 'map', // container ID
@@ -6,6 +6,9 @@ const map = new mapboxgl.Map({
     center: hangout.geometry.coordinates, // starting position [lng, lat]
     zoom: 9, // starting zoom
 });
+
+map.addControl(new mapboxgl.NavigationControl());
+
 
 new mapboxgl.Marker()
     .setLngLat(hangout.geometry.coordinates)
