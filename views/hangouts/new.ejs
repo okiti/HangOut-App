@@ -1,64 +1,68 @@
 <% layout('layouts/boilerplate') %>
 
     <div class="row">
-        <h2 class="text-center">New Hangout</h2>
-        <div class="col-6 offset-3">
-            <form action="/hangouts/" method="post" novalidate class="validated-form" enctype="multipart/form-data">
+        <div class="col-md-6 offset-md-3 ">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h2 class="card-title text-center">New Hangout</h2>
 
-                <div class="mb-3">
-                    <label class="label-form" for="name"> Name</label>
-                    <input class="form-control" type="text" id="name" name="hangout[name]" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
+                    <form action="/hangouts/" method="post" novalidate class="validated-form"
+                        enctype="multipart/form-data">
+
+                        <div class="mb-3">
+                            <label class="label-form" for="name"> Name</label>
+                            <input class="form-control" type="text" id="name" name="hangout[name]" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="label-form" for="location"> Location</label>
+                            <input class="form-control" type="text" id="location" name="hangout[location]"
+                                placeholder="Ikeja, Lagos" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label class="label-form" for="daysOpen"> Days/Time Open</label>
+                            <input class="form-control" name="hangout[daysOpen]" id="daysOpen"
+                                placeholder="e.g. Monday - Saturday, 9:00am - 10:00pm" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="label-form" for="description"> Description</label>
+                            <textarea class="form-control" name="hangout[description]" id="description" cols="30"
+                                rows="5" required></textarea>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-file custom-file">
+                                <input type="file" name="image" id="image" class="form-file-input" multiple>
+                                <label class="form-file-label" for="image">
+                                    <span class="form-file-text custom-file-label">Choose image(s)...</span>
+                                    <span class="form-file-button">Browse</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <button class="btn btn-success">Add Hangout</button>
+                        </div>
+
+
+                    </form>
                 </div>
-
-                <div class="mb-3">
-                    <label class="label-form" for="location"> Location</label>
-                    <input class="form-control" type="text" id="location" name="hangout[location]"
-                        placeholder="Ikeja, Lagos" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                </div>
-
-
-                <div class="mb-3">
-                    <label class="label-form" for="daysOpen"> Days/Time Open</label>
-                    <input class="form-control" name="hangout[daysOpen]" id="daysOpen"
-                        placeholder="e.g. Monday - Saturday, 9:00am - 10:00pm" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <label class="label-form" for="description"> Description</label>
-                    <textarea class="form-control" name="hangout[description]" id="description" cols="30" rows="5"
-                        required></textarea>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <div class="form-file custom-file">
-                        <input type="file" name="image" id="image" class="form-file-input" multiple>
-                        <label class="form-file-label" for="image">
-                            <span class="form-file-text custom-file-label">Choose image(s)...</span>
-                            <span class="form-file-button">Browse</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <button class="btn btn-success">Add Hangout</button>
-                </div>
-
-
-            </form>
-            <br>
-            <a href="/hangouts">All Hangouts</a>
+            </div>
 
         </div>
     </div>

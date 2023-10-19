@@ -1,0 +1,16 @@
+#cluster-map{
+    width: 100%;
+    height: 500px;
+    margin-bottom: 3rem;
+}
+
+#map{
+    width: 100%;
+    height: 300px;
+}
+
+#heading{
+color: brown;
+margin-bottom: 1rem;
+
+}
