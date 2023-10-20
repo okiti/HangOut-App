@@ -10,7 +10,8 @@ const { cloudinary } = require('../cloudinary/index')
 
 module.exports.index = async (req, res) => {
     const hangouts = await Hangout.find({})
-    res.render('hangouts/index', { hangouts })
+
+    res.render('hangouts/index', { hangouts})
 }
 
 module.exports.renderNewForm = (req, res) => {

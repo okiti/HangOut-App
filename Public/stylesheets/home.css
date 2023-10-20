@@ -20,23 +20,59 @@ body {
     border-bottom: 0.25rem solid transparent;
 }
 
-.nav-link:hover {
-    border-bottom-color: rgba(255, 255, 255, 0.5);
+.nav-link.hang:hover {
+    border-bottom-color: white;
     color: #F9F6EE;
 }
 
-.btn-secondary, .btn-secondary:hover{
-    color: #333;
-    text-shadow: none;
 
-}
-
-.nav-link.active{
+.nav-link.active {
     color: white;
     border-bottom-color: white;
 
 }
 
-#title{
- font-weight: 700;  
+
+.nav-link.reg {
+    background-color: chocolate;
+    border-radius: 0.25rem;
+    color: white;
+    padding: 0.5rem;
+
+}
+
+.nav-link.reg:hover {
+    background-color: brown;
+
+}
+
+.nav-link.log {
+    border: 0.05rem solid white;
+    border-radius: 0.25rem;
+    color: white;
+    padding: 0.5rem;
+
+}
+
+.nav-link.log:hover {
+    background-color: brown;
+
+}
+
+.btn-secondary {
+    color: #333;
+    text-shadow: none;
+    background-color: beige;
+    border: none;
+}
+
+.btn-secondary:hover {
+    color: #333;
+    text-shadow: none;
+    background-color: cadetblue;
+
+}
+
+#title {
+    font-weight: 700;
 }

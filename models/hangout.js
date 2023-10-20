@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const Review = require('./review')
 const Schema = mongoose.Schema;
 
+
 const ImageSchema = new Schema({
     url: String,
     filename: String
@@ -41,6 +42,8 @@ const hangoutSchema = new Schema({
         }
     ]
 }, opts)
+
+
 
 hangoutSchema.virtual('properties.popUpMarkup').get(function () {
     return `<strong><a href="/hangouts/${this._id}">${this.name}</a><strong>
