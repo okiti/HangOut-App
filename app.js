@@ -173,6 +173,8 @@ app.use((err, req, res, next) => {      //Generic error handler//
 })
 
 
-app.listen(3000, () => {
-    console.log('LISTENING TO PORT 3000')
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+    console.log(`Listening to port ${port}`)
 })
