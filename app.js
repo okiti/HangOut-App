@@ -25,11 +25,15 @@ const mongoSanitize = require('express-mongo-sanitize')
 
 const hangoutRoutes = require('./routes/hangouts')
 const reviewRoutes = require('./routes/reviews')
-const UserRoutes = require('./routes/users')
+const UserRoutes = require('./routes/users');
+const MongoStore = require('connect-mongo');
+
+const MongoDBStore = require("connect-mongo");
+
+const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/hangout';
 
 
-
-mongoose.connect('mongodb://127.0.0.1:27017/hangout', {
+mongoose.connect(dbUrl, {
     useUnifiedTopology: true,
     useNewUrlParser: true
 })
@@ -51,10 +55,22 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use(mongoSanitize())
 
+const secret = process.env.SECRET || 'thisshouldbeabettersecret!'
+
+const store = new MongoDBStore({
+    mongoUrl: dbUrl,
+    secret: secret,
+    touchAfter: 24 * 60 * 60
+})
+store.on("error", function (e) {
+    console.log("SEESION STORE ERROR", e)
+})
+
 
 const sessionConfig = {
+    store: store,
     name: 'session',
-    secret: 'thisshouldbeabettersecret!',
+    secret: secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -157,6 +173,6 @@ app.use((err, req, res, next) => {      //Generic error handler//
 })
 
 
-app.listen(8080, () => {
-    console.log('LISTENING TO PORT 8080')
+app.listen(3000, () => {
+    console.log('LISTENING TO PORT 3000')
 })
