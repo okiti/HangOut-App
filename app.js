@@ -26,7 +26,6 @@ const mongoSanitize = require('express-mongo-sanitize')
 const hangoutRoutes = require('./routes/hangouts')
 const reviewRoutes = require('./routes/reviews')
 const UserRoutes = require('./routes/users');
-const MongoStore = require('connect-mongo');
 
 const MongoDBStore = require("connect-mongo");
 
@@ -59,7 +58,7 @@ const secret = process.env.SECRET || 'thisshouldbeabettersecret!'
 
 const store = new MongoDBStore({
     mongoUrl: dbUrl,
-    secret: secret,
+    secret,
     touchAfter: 24 * 60 * 60
 })
 store.on("error", function (e) {
@@ -68,9 +67,9 @@ store.on("error", function (e) {
 
 
 const sessionConfig = {
-    store: store,
+    store,
     name: 'session',
-    secret: secret,
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
