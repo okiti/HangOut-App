@@ -11,7 +11,7 @@ const { cloudinary } = require('../cloudinary/index')
 module.exports.index = async (req, res) => {
     const hangouts = await Hangout.find({})
 
-    res.render('hangouts/index', { hangouts})
+    res.render('hangouts/index', { hangouts })
 }
 
 module.exports.renderNewForm = (req, res) => {
@@ -61,10 +61,20 @@ module.exports.renderEditForm = async (req, res) => {
 }
 
 module.exports.updateHangout = async (req, res) => {
+
+    const geoData = await geocoder.forwardGeocode({
+        query: req.body.hangout.location,
+        limit: 1
+    }).send()
+
     const { id } = req.params;
     const hangout = await Hangout.findByIdAndUpdate(id, { ...req.body.hangout })
     const imgs = (req.files.map(f => ({ url: f.path, filename: f.filename })))
     hangout.images.push(...imgs)
+
+    hangout.geometry = geoData.body.features[0].geometry
+
+
     if (req.body.deleteImages) {
         for (let filename of req.body.deleteImages) {
             await cloudinary.uploader.destroy(filename)

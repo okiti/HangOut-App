@@ -81,7 +81,7 @@
             <% if(currentUser) {%>
                 <h2>Leave a Review</h2>
                 <form action="/hangouts/<%=hangout._id%>/reviews" class="mb-3 validated-form" method="post" novalidate>
-                    <div class="mb-3">
+                    <div>
                         <fieldset class="starability-basic">
                             <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1"
                                 checked aria-label="No rating." />

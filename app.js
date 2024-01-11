@@ -1,4 +1,4 @@
-if (process.env.NODE_ENV !== "production") {
+ if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
 
@@ -172,7 +172,7 @@ app.use((err, req, res, next) => {      //Generic error handler//
 })
 
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3030;
 
 app.listen(port, () => {
     console.log(`Listening to port ${port}`)

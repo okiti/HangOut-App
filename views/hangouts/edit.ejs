@@ -58,7 +58,7 @@
                         <div class="mb-3">
                             <%hangout.images.forEach((img, i)=> {%>
                                 <img src="<%=img.thumbnail %>" class="img-thumbnail" alt="">
-                                <div class="form-check-inline">
+                                <div class="form-check-block mb-3">
                                     <input type="checkbox" id="image-<%=i%>" name="deleteImages[]"
                                         value="<%=img.filename %>">
                                     <label for="image-<%=i%>">delete?</label>
@@ -76,7 +76,7 @@
             </div>
             <br>
             <form action="/hangouts/<%=hangout._id %>">
-                <button class="btn btn-small btn-info">Back</button>
+                <button class="btn btn-small btn-info mb-3">Back</button>
             </form>
 
 
